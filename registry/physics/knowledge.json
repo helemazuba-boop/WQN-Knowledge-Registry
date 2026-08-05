@@ -1,1 +1,45 @@
-[]
+[
+{
+"stable_key": "physics.knowledge.kinematics.uniformly_accelerated_motion",
+"name": "匀变速直线运动",
+"kind": "knowledge",
+"subject": "physics",
+"aliases": [
+"匀变速运动",
+"匀变速直线运动规律"
+],
+"description": "物体沿直线运动且加速度保持不变的运动模型，包括速度、位移、时间和加速度之间的基本关系。",
+"include": [
+"速度随时间均匀变化的直线运动",
+"使用匀变速直线运动基本公式描述速度、位移、时间和加速度的关系",
+"匀加速直线运动",
+"匀减速直线运动"
+],
+"exclude": [
+"加速度随时间变化的直线运动",
+"匀速直线运动本身",
+"曲线运动"
+],
+"status": "active"
+},
+{
+"stable_key": "physics.knowledge.kinematics.free_fall",
+"name": "自由落体运动",
+"kind": "knowledge",
+"subject": "physics",
+"aliases": [
+"自由落体"
+],
+"description": "物体从静止开始，仅在重力作用下沿竖直方向下落的运动，是初速度为零、加速度为重力加速度的匀加速直线运动。",
+"parent": "physics.knowledge.kinematics.uniformly_accelerated_motion",
+"include": [
+"从静止开始的自由落体",
+"利用重力加速度分析自由落体的速度、位移和时间关系"
+],
+"exclude": [
+"具有非零初速度的竖直上抛或竖直下抛运动",
+"空气阻力不可忽略的下落运动"
+],
+"status": "active"
+}
+]
