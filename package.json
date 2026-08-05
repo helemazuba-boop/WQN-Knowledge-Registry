@@ -1,0 +1,28 @@
+{
+  "name": "wqn-knowledge-registry",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-only",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run validate && npm run typecheck && npm test && npm run format:check"
+  },
+  "dependencies": {
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.18"
+  }
+}
