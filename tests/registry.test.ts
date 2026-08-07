@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
+  assertKnowledgeRegistryCompatibility,
+  createKnowledgeRegistryArtifact,
+  hashKnowledgeRegistryArtifact,
+  parseKnowledgeRegistryArtifact,
+  serializeKnowledgeRegistryArtifact,
+} from '../src/artifact.ts';
+import {
   loadKnowledgeRegistry,
   validateKnowledgeRegistry,
 } from '../src/registry.ts';
@@ -154,6 +161,115 @@ describe('Knowledge Registry validation', () => {
         )
       )
     ).toThrow(/cycle/);
+  });
+
+  it('builds a deterministic sorted artifact', () => {
+    const registry = validateKnowledgeRegistry(
+      [...subjects].reverse(),
+      files(
+        [],
+        [mark('math.skill.parameter_separation'), mark('math.skill.algebra')]
+      )
+    );
+    const first = serializeKnowledgeRegistryArtifact(
+      createKnowledgeRegistryArtifact(registry)
+    );
+    const second = serializeKnowledgeRegistryArtifact(
+      createKnowledgeRegistryArtifact(registry)
+    );
+
+    expect(first).toBe(second);
+    expect(first.endsWith('\n')).toBe(true);
+    expect(JSON.parse(first)).toMatchObject({
+      schema_version: 1,
+      subjects: [{ stable_key: 'math' }, { stable_key: 'physics' }],
+      marks: [
+        { stable_key: 'math.skill.algebra' },
+        { stable_key: 'math.skill.parameter_separation' },
+      ],
+    });
+    expect(hashKnowledgeRegistryArtifact(first)).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it('rejects incompatible changes to published identities', () => {
+    const baseline = createKnowledgeRegistryArtifact(
+      validateKnowledgeRegistry(
+        subjects,
+        files(
+          [],
+          [
+            mark('math.skill.algebra'),
+            mark('math.skill.parameter_separation', { status: 'deprecated' }),
+          ]
+        )
+      )
+    );
+
+    const withoutPublishedMark = createKnowledgeRegistryArtifact(
+      validateKnowledgeRegistry(
+        subjects,
+        files([], [mark('math.skill.algebra')])
+      )
+    );
+    expect(() =>
+      assertKnowledgeRegistryCompatibility(baseline, withoutPublishedMark)
+    ).toThrow(/Published Mark key removed/);
+
+    const changedIdentity = parseKnowledgeRegistryArtifact({
+      ...baseline,
+      marks: baseline.marks.map((entry) =>
+        entry.stable_key === 'math.skill.algebra'
+          ? {
+              ...entry,
+              stable_key: 'physics.skill.algebra',
+              subject: 'physics',
+            }
+          : entry
+      ),
+    });
+    expect(() =>
+      assertKnowledgeRegistryCompatibility(baseline, changedIdentity)
+    ).toThrow(/Published Mark key removed/);
+
+    const reactivated = parseKnowledgeRegistryArtifact({
+      ...baseline,
+      marks: baseline.marks.map((entry) =>
+        entry.stable_key === 'math.skill.parameter_separation'
+          ? { ...entry, status: 'active' }
+          : entry
+      ),
+    });
+    expect(() =>
+      assertKnowledgeRegistryCompatibility(baseline, reactivated)
+    ).toThrow(/Deprecated Mark key reactivated/);
+  });
+
+  it('accepts metadata changes and deprecation', () => {
+    const baseline = createKnowledgeRegistryArtifact(
+      validateKnowledgeRegistry(
+        subjects,
+        files([], [mark('math.skill.algebra')])
+      )
+    );
+    const candidate = createKnowledgeRegistryArtifact(
+      validateKnowledgeRegistry(
+        subjects,
+        files(
+          [],
+          [
+            mark('math.skill.algebra', {
+              name: '代数方法',
+              aliases: ['代数'],
+              status: 'deprecated',
+            }),
+          ]
+        )
+      )
+    );
+
+    expect(() =>
+      assertKnowledgeRegistryCompatibility(baseline, candidate)
+    ).not.toThrow();
   });
 
   it('loads the checked-in Registry', async () => {

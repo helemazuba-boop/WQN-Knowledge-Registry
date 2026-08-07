@@ -13,6 +13,8 @@ This repository owns:
 - canonical Subject definitions;
 - canonical Knowledge and Skill Mark definitions;
 - stable-key and parent-graph validation;
+- deterministic `dist/registry.json` artifact generation;
+- published-identity compatibility validation;
 - authoring rules and governance.
 
 It does **not** contain user data, Problems, credentials, Supabase deployment code,
@@ -67,15 +69,30 @@ For a faster content-only check:
 npm run validate
 ```
 
+`npm run build` validates the source and writes `dist/registry.json`. Subjects and
+Marks are sorted by stable key, JSON formatting is fixed, and the UTF-8 file has one
+trailing newline. Consumers calculate SHA-256 over those exact bytes.
+
+Before publishing a candidate, compare it with the artifact from protected `main`:
+
+```sh
+npm run compatibility -- /path/to/published-registry.json
+```
+
+The compatibility gate rejects removed published identities, Mark subject/kind
+mutation, and reactivation of deprecated identities. Metadata may evolve and active
+identities may be deprecated.
+
 The initial Registry schema version is `1`.
 
 ## Runtime synchronization
 
-Production synchronization is deliberately separate from this initial repository.
-The intended model is a validated deterministic artifact, bound to an exact Registry
-commit and content hash, projected through a protected service-role-only atomic WQN
-database operation. Registry synchronization and WQN application deployment remain
-independent operations.
+The public runtime contract is the deterministic `dist/registry.json` artifact bound
+to an exact Registry commit and its SHA-256. The source commit is provenance outside
+the artifact bytes, so a documentation-only commit may retain the same content hash.
+Production credentials and synchronization remain in the WQN application repository;
+this repository never carries WQN or Supabase secrets. Registry synchronization and
+WQN application deployment remain independent operations.
 
 ## License
 

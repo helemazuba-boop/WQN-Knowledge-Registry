@@ -46,13 +46,15 @@ Every Registry change must:
 
 1. pass `npm run check`;
 2. preserve all published stable identities;
-3. use deprecation instead of deletion;
-4. avoid inventing taxonomy entries without review;
-5. contain no user data, Problem records, credentials, or deployment configuration.
+3. pass the historical compatibility check against the artifact from protected `main`;
+4. use deprecation instead of deletion;
+5. avoid inventing taxonomy entries without review;
+6. contain no user data, Problem records, credentials, or deployment configuration.
 
-A checkout validator proves structural validity. Historical compatibility is a
-separate responsibility: future protected-branch checks will compare proposed content
-against published mainline identities.
+Structural validation and historical compatibility are separate gates. The checkout
+validator proves that one revision is internally valid. The compatibility gate proves
+that it preserves published identities, keeps a Mark's subject/kind immutable, and
+does not reactivate deprecated identities.
 
 ## Runtime boundary
 
