@@ -1,0 +1,22 @@
+{
+  "profile_id": "skill-rag-qwen-v1",
+  "provider_protocol": "qwen-instruct-query-v1",
+  "provider": "modelscope",
+  "endpoint": "https://ms-ens-af052707-5999.api-inference.modelscope.cn/v1/embeddings",
+  "model": "Qwen/Qwen3-Embedding-4B",
+  "model_identity_policy": "hosted_alias",
+  "model_identity": "Qwen/Qwen3-Embedding-4B",
+  "dimension": 2560,
+  "encoding_format": "float",
+  "normalization": "l2",
+  "document_contract": {
+    "input_transform": "plain"
+  },
+  "query_contract": {
+    "input_transform": "instruct-query",
+    "instruction": "Given a Chinese high school physics problem, retrieve the most relevant problem-solving skill or method needed to solve it."
+  },
+  "document_template_version": "skill-chunks-priority-gte-0.95-v1",
+  "query_template_version": "skill-question-instruction-v1",
+  "tokenizer": null
+}

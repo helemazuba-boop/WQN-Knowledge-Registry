@@ -4,10 +4,10 @@ export const KNOWLEDGE_REGISTRY_SCHEMA_VERSION = 1 as const;
 export const RegistryStatusSchema = z.enum(['active', 'deprecated']);
 export const MarkKindSchema = z.enum(['knowledge', 'skill']);
 
-const StableSubjectKeySchema = z
+export const StableSubjectKeySchema = z
   .string()
   .regex(/^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$/);
-const StableMarkKeySchema = z
+export const StableMarkKeySchema = z
   .string()
   .regex(/^[a-z][a-z0-9_]*\.(?:knowledge|skill)\.[a-z0-9_]+(?:\.[a-z0-9_]+)*$/);
 const NonBlankStringSchema = z.string().trim().min(1);

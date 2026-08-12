@@ -9,9 +9,13 @@ import {
   serializeKnowledgeRegistryArtifact,
 } from '../src/artifact.ts';
 import { loadKnowledgeRegistry } from '../src/registry.ts';
+import { buildSkillRetrievalArtifacts } from '../src/skill-retrieval-files.ts';
 
 const repositoryDir = fileURLToPath(new URL('../', import.meta.url));
-const outputPath = path.join(repositoryDir, 'dist', 'registry.json');
+const outputDir = path.join(repositoryDir, 'dist');
+const outputPath = path.join(outputDir, 'registry.json');
+const skillRetrievalOutputDir = path.join(outputDir, 'skill-retrieval');
+const skillRetrievalProfileIds = ['skill-rag-qwen-v1', 'skill-rag-nvidia-v1'];
 
 function compatibilityPath(argv: string[]): string | null {
   const index = argv.indexOf('--baseline');
@@ -33,8 +37,13 @@ if (baselinePath) {
   assertKnowledgeRegistryCompatibility(baseline, artifact);
 }
 
-await mkdir(path.dirname(outputPath), { recursive: true });
+await mkdir(outputDir, { recursive: true });
 await writeFile(outputPath, serialized, 'utf8');
+const skillRetrieval = await buildSkillRetrievalArtifacts(
+  registry,
+  skillRetrievalProfileIds,
+  skillRetrievalOutputDir
+);
 
 console.log(
   [
@@ -43,5 +52,16 @@ console.log(
     `subjects=${artifact.subjects.length}`,
     `marks=${artifact.marks.length}`,
     `sha256=${hashKnowledgeRegistryArtifact(serialized)}`,
+  ].join(' ')
+);
+
+console.log(
+  [
+    `Built ${path.relative(repositoryDir, path.join(skillRetrievalOutputDir, 'index.json'))}`,
+    `profiles=${skillRetrieval.profiles.length}`,
+    ...skillRetrieval.profiles.map(
+      (profile) =>
+        `${profile.profile_id}:${profile.document_count}x${profile.dimension}:${profile.artifact_sha256}`
+    ),
   ].join(' ')
 );

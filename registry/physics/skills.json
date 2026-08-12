@@ -1,1 +1,908 @@
-[]
+[
+  {
+    "stable_key": "physics.skill.move.001",
+    "name": "黄金路径法巧选运动学公式",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：直线运动\n技能：大招1 黄金路径法巧选运动学公式\n部分：大招识别\n\n### 大招识别\n\n描述匀变速直线运动的物理量有 $a, v_0, v_t, x, t$ ，题目无外乎就是让我们计算这些物理量。围绕这五个物理量有五个匀变速直线运动公式，但是应该选取哪个公式进行求解呢？"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.002",
+    "name": "巧用均速法",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：直线运动\n技能：大招2 巧用均速法\n部分：大招识别\n\n### 大招识别\n\n匀变速直线运动的加速度、速度均未知,只知道中间某一段位移和时间。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.003",
+    "name": "零点推论",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.004",
+    "name": "位移差公式",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：直线运动\n技能：大招4 位移差公式\n部分：大招识别\n\n### 大招识别\n\n匀变速直线运动按照相等时间间隔划分,已知两段位移。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.005",
+    "name": "运动学图像问题通解",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：直线运动\n技能：大招5 运动学图像问题通解\n部分：大招识别\n\n### 大招识别\n\n题目给出 v-t 图像、x-t 图像或 a-t 图像等，计算速度、位移等物理量。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.006",
+    "name": "0-v-0 模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：直线运动\n技能：大招6 0-v-0 模型\n部分：大招识别\n\n### 大招识别\n\n物体的初速度为0,先匀加速到v,再匀减速到末速度为0。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.007",
+    "name": "巧选方程解多段问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：直线运动\n技能：大招7 巧选方程解多段问题\n部分：大招识别\n\n### 大招识别\n\n题中给出做匀变速直线运动的物体的几段运动过程,对每一段我们都可以列匀变速直线运动的方程,我们应该怎样选择方程呢?这里教大家两个方法:目标转化法和消参法。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.008",
+    "name": "距离公式巧解追及相遇问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：直线运动\n技能：大招8 距离公式巧解追及相遇问题\n部分：大招识别\n\n### 大招识别\n\n两个物体做直线运动,让我们求解相遇的时间、次数等。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.009",
+    "name": "用 v-t 图像描述追及相遇问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：直线运动\n技能：大招9 用 v-t 图像描述追及相遇问题\n部分：大招识别\n\n### 大招识别\n\n两物体速度随时间变化的 v-t 图线画在同一坐标系内,让我们根据 v-t 图像的信息分析相遇次数、何时最远或最近等问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.010",
+    "name": "整体法分析多物体受力",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静力学\n技能：大招10 整体法分析多物体受力\n部分：大招识别\n\n### 大招识别\n\n分析受力时有多个物体,当所求的力只涉及研究系统而不涉及系统内某些物体的力和运动时,可以以整个系统为研究对象。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.011",
+    "name": "全反力巧解含摩擦力的四力平衡",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静力学\n技能：大招11 全反力巧解含摩擦力的四力平衡\n部分：大招识别\n\n### 大招识别\n\n物体受四个力平衡,其中一个力为支持力,一个力为滑动摩擦力。本大招常常应用到求解除支持力、摩擦力和重力外的第四个力的大小、方向,有时也会应用到对动摩擦因数的求解。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.012",
+    "name": "动态平衡之横不转模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静力学\n技能：大招12 动态平衡之横不转模型\n部分：大招识别\n\n### 大招识别\n\n横不转模型特征:物体受三个力作用保持动态平衡,除重力外,剩下两个力中有一个力始终是水平方向的,且其大小变化,另一个力不水平,大小和方向均可变化。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.013",
+    "name": "动态平衡之斜不转模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静力学\n技能：大招13 动态平衡之斜不转模型\n部分：大招识别\n\n### 大招识别\n\n物体受三个力作用保持动态平衡,重力不变,倾斜的力方向始终不变,另一个力大小和方向变化。如图甲,保持轻绳和竖直方向的夹角固定,改变F的方向,这个过程中,轻绳对小球的这个斜着的力方向始终不变。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.014",
+    "name": "动态平衡之定角转模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静力学\n技能：大招14 动态平衡之定角转模型\n部分：大招识别\n\n### 大招识别\n\n物体受三个力动态平衡,除了重力以外的两个力之间的夹角始终不变。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.015",
+    "name": "动态平衡之相似三角形法",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静力学\n技能：大招15 动态平衡之相似三角形法\n部分：大招识别\n\n### 大招识别\n\n除了重力以外的两个力的大小和方向都在变,夹角也不固定。这时候往往存在一个几何三角形和力的矢量三角形相似,我们可以利用相似比求解。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.016",
+    "name": "降维法巧解三维空间中的平衡问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静力学\n技能：大招16 降维法巧解三维空间中的平衡问题\n部分：大招识别\n\n### 大招识别\n\n处于平衡状态的物体受到的力不在同一平面内。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.017",
+    "name": "等时圆模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：牛顿运动定律\n技能：大招17 等时圆模型\n部分：大招识别\n\n### 大招识别\n\n物体从静止开始沿竖直圆的不同光滑弦下滑到圆上的最低点,或从圆上的最高点从静止开始沿不同弦下滑到圆上的各点,比较沿不同弦下滑所用的时间大小。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.018",
+    "name": "内力公式",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：牛顿运动定律\n技能：大招18 内力公式\n部分：大招识别\n\n### 大招识别\n\n求解连接体之间的内力大小。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.019",
+    "name": "对系统列牛顿第二定律",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：牛顿运动定律\n技能：大招19 对系统列牛顿第二定律\n部分：大招识别\n\n### 大招识别\n\n研究对象由多物体构成,各物体的加速度不同,求外力。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.020",
+    "name": "弹簧分离问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：牛顿运动定律\n技能：大招20 弹簧分离问题\n部分：大招识别\n\n### 大招识别\n\n两个物体叠放在竖直轻弹簧上,在外力牵引下移动直至两物体分离。围绕何时两物体分离展开一些问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.021",
+    "name": "板块问题通解",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：牛顿运动定律\n技能：大招21 板块问题通解\n部分：大招识别\n\n### 大招识别\n\n一个木板上面放置一个物块，并且木板与物块间存在相对滑动。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.022",
+    "name": "传送带模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：牛顿运动定律\n技能：大招22 传送带模型\n部分：大招识别\n\n### 大招识别\n\n物体放在传送带上,求物体在传送带上运动的时间、离开传送带时的速度等。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.023",
+    "name": "小船过河模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：曲线运动\n技能：大招23 小船过河模型\n部分：大招识别\n\n### 大招识别\n\n求解小船过河中的最短时间、最短位移等问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.024",
+    "name": "三个步骤巧解关联速度问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：曲线运动\n技能：大招24 三个步骤巧解关联速度问题\n部分：大招识别\n\n### 大招识别\n\n对绳关联、杆关联或接触关联的两个物体,已知其中一个物体的速度,求另一个物体的速度。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.025",
+    "name": "平抛运动的推论",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：曲线运动\n技能：大招25 平抛运动的推论\n部分：大招识别\n\n### 大招识别\n\n物体做平抛运动,计算物体的速度、位移和角度问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.026",
+    "name": "口诀法速解平抛轨迹比较和斜面平抛比例问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：曲线运动\n技能：大招26 口诀法速解平抛轨迹比较和斜面平抛比例问题\n部分：大招识别\n\n### 大招识别\n\n1. 给出两个或多个物体的平抛轨迹, 比较物体的初速度和落地时间。\n2. 抛出点在斜面上的同一点, 以不同初速度做平抛运动, 求各个物理量的比例关系。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.027",
+    "name": "圆盘模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：曲线运动\n技能：大招27 圆盘模型\n部分：大招识别\n\n### 大招识别\n\n物体在转动的粗糙圆盘上跟着圆盘做圆周运动,求摩擦力、何时滑动等问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.028",
+    "name": "口诀法比较圆锥摆类问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：曲线运动\n技能：大招28 口诀法比较圆锥摆类问题\n部分：大招识别\n\n### 大招识别\n\n绳子上端固定在天花板上,下端系着小球,小球在水平面内做匀速圆周运动或在半圆形碗(倒锥桶)中做水平面内的圆周运动。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.029",
+    "name": "竖直圆模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：曲线运动\n技能：大招29 竖直圆模型\n部分：大招识别\n\n### 大招识别\n\n物体在竖直平面内做圆周运动。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.030",
+    "name": "口诀法解卫星比较问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：万有引力与航天\n技能：大招30 口诀法解卫星比较问题\n部分：大招识别\n\n### 大招识别\n\n比较两个高度不同的卫星的线速度 v、角速度 $\\omega$ 、周期 T、向心加速度 a 的大小关系。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.031",
+    "name": "“知二求三”求解卫星运动中的物理量",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：万有引力与航天\n技能：大招31 “知二求三”求解卫星运动中的物理量\n部分：大招识别\n\n### 大招识别\n\n已知环绕卫星的 a、v、 $\\omega(T)$ 、r 和中心天体的质量 M 这五个中的任意两个物理量, 可求其他三个物理量。由 $T=\\frac{2\\pi}{\\omega}$ , 知 T、 $\\omega$ 可以互相推导, 两者看成一个参量就可以。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.032",
+    "name": "公式法解天体追及相遇问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：万有引力与航天\n技能：大招32 公式法解天体追及相遇问题\n部分：大招识别\n\n### 大招识别\n\n求两个绕同一天体运行的卫星下次相距最近(远)的时间或题目出现“冲日”。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.033",
+    "name": "口诀法 + “麻辣烫”公式秒杀双星问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：万有引力与航天\n技能：大招33 口诀法 + “麻辣烫”公式秒杀双星问题\n部分：大招识别\n\n### 大招识别\n\n两个天体在彼此之间的万有引力作用下做匀速圆周运动。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.034",
+    "name": "卫星变轨问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：万有引力与航天\n技能：大招34 卫星变轨问题\n部分：大招识别\n\n### 大招识别\n\n题图出现变轨轨道(椭圆轨道),比较卫星分别处在各轨道的某点时卫星的速度、加速度的大小等。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.035",
+    "name": "计算斜面摩擦力做功与变力做功的方法",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：功和能\n技能：大招35 计算斜面摩擦力做功与变力做功的方法\n部分：大招识别\n\n### 大招识别\n\n1. 斜面摩擦力做功: 物体在粗糙斜面上滑动, 求解摩擦力做的功。\n\n2. 变力做功: 物体受到的力为变力, 计算变力做功。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.036",
+    "name": "机车启动模型通解",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：功和能\n技能：大招36 机车启动模型通解\n部分：大招识别\n\n### 大招识别\n\n汽车以恒功率(或恒加速度)启动,求启动过程中汽车的牵引力、速度等。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.037",
+    "name": "动能定理的应用",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.038",
+    "name": "动能定理搞定竖直圆问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：功和能\n技能：大招38 动能定理搞定竖直圆问题\n部分：大招识别\n\n### 大招识别\n\n题中涉及竖直圆过程的能量或受力的分析。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.039",
+    "name": "动量定理巧解流体模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：动量\n技能：大招39 动量定理巧解流体模型\n部分：大招识别\n\n### 大招识别\n\n用高速水柱或气柱等流体冲击墙壁等,分析冲击力、流速等。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.040",
+    "name": "关系法速解人船模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：动量\n技能：大招40 关系法速解人船模型\n部分：大招识别\n\n### 大招识别\n\n初始时人和船均静止,人在船上走,在人往前走的过程中船会往后退,一段时间后,求人和船的速度、位移大小。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.041",
+    "name": "速算完全非弹性碰撞的机械能损失",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：动量\n技能：大招41 速算完全非弹性碰撞的机械能损失\n部分：大招识别\n\n### 大招识别\n\n常用于发生完全非弹性碰撞的题型中,对机械能损失的求解。题目中常出现“粘在一起”“一起运动”“一个物体留在另一物体内”等标志性语句。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.042",
+    "name": "速算弹性碰撞碰后速度",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：动量\n技能：大招42 速算弹性碰撞碰后速度\n部分：大招识别\n\n### 大招识别\n\n物体发生弹性碰撞,求解碰撞后各物体的速度。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.043",
+    "name": "子弹打木块模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：动量\n技能：大招43 子弹打木块模型\n部分：大招识别\n\n### 大招识别\n\n子弹打击木块,求产生的内能、射入深度、子弹和木块的速度等问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.044",
+    "name": "弹簧模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：动量\n技能：大招44 弹簧模型\n部分：大招识别\n\n### 大招识别\n\n地面光滑,两个物体中间连着轻质弹簧,求弹簧压缩量最大时两物体的速度、弹簧的弹性势能等。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.045",
+    "name": "圆弧轨道模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：动量\n技能：大招45 圆弧轨道模型\n部分：大招识别\n\n### 大招识别\n\n小球冲上不固定的光滑 $\\frac{1}{4}$ 圆弧轨道(或斜面)，求小球上升的最大高度、返回轨道底端时的速度等问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.046",
+    "name": "三点法、正交分解法巧解电场强度",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静电场\n技能：大招46 三点法、正交分解法巧解电场强度\n部分：大招识别\n\n### 大招识别\n\n1. 三点法: 匀强电场中, 已知几何关系和三点电势求电场强度的大小和方向。\n2. 正交分解法: 匀强电场中, 已知几个点的电势或电势差, 题图中有垂直关系, 求电场强度的大小和方向。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.047",
+    "name": "三步速解“三线”（电场线、等势线、轨迹线）问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静电场\n技能：大招47 三步速解“三线”（电场线、等势线、轨迹线）问题\n部分：大招识别\n\n### 大招识别\n\n在只受电场力的作用下,已知电场线+粒子的运动轨迹或等势线+粒子的运动轨迹,定性判断电场强度、电势、电势能、动能等物理量的大小关系。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.048",
+    "name": "“一线”巧解电场中的 $\\varphi-x$、$E-x$ 图像问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静电场\n技能：大招48 “一线”巧解电场中的 $\\varphi-x$、$E-x$ 图像问题\n部分：大招识别\n\n### 大招识别\n\n$\\varphi-x$ 图像或 E-x 图像。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.049",
+    "name": "公式法快解平行板电容器的动态变化问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静电场\n技能：大招49 公式法快解平行板电容器的动态变化问题\n部分：大招识别\n\n### 大招识别\n\n平行板电容器动态变化问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.050",
+    "name": "口诀法巧解电容器的电势分析问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静电场\n技能：大招50 口诀法巧解电容器的电势分析问题\n部分：大招识别\n\n### 大招识别\n\n分析电容器动态变化时两极板之间的某点电势如何变化。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.051",
+    "name": "公式法通解示波器计算问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.052",
+    "name": "复合场中的上抛模型和竖直圆模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静电场\n技能：大招52 复合场中的上抛模型和竖直圆模型\n部分：大招识别\n\n### 大招识别\n\n1. 复合场: 重力场 + 匀强电场。\n2. 在复合场中竖直上抛带电体或带电体在复合场中做圆周运动。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.053",
+    "name": "“以图攻图”妙解交变电场问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：静电场\n技能：大招53 “以图攻图”妙解交变电场问题\n部分：大招识别\n\n### 大招识别\n\n带电粒子由静止开始在交变电场中运动或垂直电场方向射入加了交变电场的极板之间,并给出U-t图像,电压周期性变化,定性分析带电粒子在极板间的运动。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.054",
+    "name": "“串反并同”巧解电路动态分析问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：恒定电流\n技能：大招54 “串反并同”巧解电路动态分析问题\n部分：大招识别\n\n### 大招识别\n\n直流纯电阻电路中通过移动滑动变阻器的滑片或者通过开关的闭合和断开等引起电路阻值发生变化,分析电路电流、电压、电功率的变化情况。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.055",
+    "name": "电表改装与校准",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：恒定电流\n技能：大招55 电表改装与校准\n部分：大招识别\n\n### 大招识别\n\n题中给出了原电表的量程和内阻,原电流表的量程过小,需要扩大量程,或缺少电压表。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.056",
+    "name": "磁场轨迹问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：磁场\n技能：大招56 磁场轨迹问题\n部分：大招识别\n\n### 大招识别\n\n带电粒子在匀强磁场中运动,需要根据运动轨迹求磁感应强度 B、速度大小 v、圆周运动轨迹半径 r、运动时间 t 等问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.057",
+    "name": "弦长公式",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：磁场\n技能：大招57 弦长公式\n部分：大招识别\n\n### 大招识别\n\n题干中已知弦长、速弦角,或者是弦长、速弦角很好求。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.058",
+    "name": "放缩圆",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：磁场\n技能：大招58 放缩圆\n部分：大招识别\n\n### 大招识别\n\n多个相同的粒子射入磁场的方向不变,但速率不同,或单粒子分别以不同的速率沿同一方向射入磁场。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.059",
+    "name": "旋转圆",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：磁场\n技能：大招59 旋转圆\n部分：大招识别\n\n### 大招识别\n\n比荷相同的粒子以同样的速率沿各个方向射入磁场,轨迹圆大小不变。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.060",
+    "name": "圆形磁场最小面积问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：磁场\n技能：大招60 圆形磁场最小面积问题\n部分：大招识别\n\n### 大招识别\n\n圆形磁场大小未知,已知或可求出带电粒子的进、出磁场速度方向,求满足条件的最小磁场面积。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.061",
+    "name": "类平抛电场 + 磁场",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：磁场\n技能：大招61 类平抛电场 + 磁场\n部分：大招识别\n\n### 大招识别\n\n带电粒子以垂直于电场线方向的初速度先进入匀强电场,再进入匀强磁场。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.062",
+    "name": "配速法解带电粒子在叠加场中的复杂曲线运动",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：磁场\n技能：大招62 配速法解带电粒子在叠加场中的复杂曲线运动\n部分：大招识别\n\n### 大招识别\n\n带电粒子在匀强磁场中除所受洛伦兹力外的合力不为零,且不与洛伦兹力等大反向,粒子速度大小和方向都在变化,粒子运动轨迹是一条复杂曲线。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.063",
+    "name": "口诀法搞定楞次定律",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：电磁感应\n技能：大招63 口诀法搞定楞次定律\n部分：大招识别\n\n### 大招识别\n\n闭合线圈内磁通量发生变化时,研究线圈的感应电流的方向、所受安培力的方向或判断感应线圈缩扩趋势等问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.064",
+    "name": "旋转切割模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：电磁感应\n技能：大招64 旋转切割模型\n部分：大招识别\n\n### 大招识别\n\n导体棒或金属圆盘在磁场中绕着某一个点转动,切割磁感线。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.065",
+    "name": "单棒模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：电磁感应\n技能：大招65 单棒模型\n部分：大招识别\n\n### 大招识别\n\n一根导体棒在平行导轨上运动,切割磁感线的模型。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.066",
+    "name": "双棒模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：电磁感应\n技能：大招66 双棒模型\n部分：大招识别\n\n### 大招识别\n\n光滑水平平行导轨上有两根与导轨垂直的导体棒在导轨上做切割磁感线运动。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.067",
+    "name": "线框模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：电磁感应\n技能：大招67 线框模型\n部分：大招识别\n\n### 大招识别\n\n一个导线框进入匀强磁场并做切割磁感线运动。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.068",
+    "name": "排除法快解 $i-t$ 图像问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：电磁感应\n技能：大招68 排除法快解 $i-t$ 图像问题\n部分：大招识别\n\n### 大招识别\n\n线框匀速穿过磁场,选择可能正确的 i-t 图像。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.069",
+    "name": "速算交流电的有效值",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：交变电流、电磁振荡和电磁波\n技能：大招69 速算交流电的有效值\n部分：大招识别\n\n### 大招识别\n\n求正弦和方波混合交流电的电流或电压有效值。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.070",
+    "name": "波的图像和振动图像的互判方法",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：机械振动和机械波\n技能：大招70 波的图像和振动图像的互判方法\n部分：大招识别\n\n### 大招识别\n\n已知波的图像和波上某质点的振动图像,求解波长、周期、振幅、传播方向等。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.071",
+    "name": "三步搞定波的多解性问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：机械振动和机械波\n技能：大招71 三步搞定波的多解性问题\n部分：大招识别\n\n### 大招识别\n\n1. 基于时间的多解性: 已知波上的两个质点的距离和振动图像, 求波的传播时间、波长等。\n2. 基于距离的多解性: 已知两个时刻的波形图, 求波的传播速度、周期等。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.072",
+    "name": "光路图几何计算",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：光学\n技能：大招72 光路图几何计算\n部分：大招识别\n\n### 大招识别\n\n画光路图,进行几何分析,求长度、角度或折射率n。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.073",
+    "name": "理想气体图像问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：热学\n技能：大招73 理想气体图像问题\n部分：大招识别\n\n### 大招识别\n\n试题中出现理想气体图像,分析气体状态参量的变化及气体 W、 $\\Delta U$ 、Q 的变化。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.074",
+    "name": "汽缸模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：热学\n技能：大招74 汽缸模型\n部分：大招识别\n\n### 大招识别\n\n汽缸内气体状态参量发生变化,求变化后的某一状态参量。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.075",
+    "name": "三步法解液柱模型",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：热学\n技能：大招75 三步法解液柱模型\n部分：大招识别\n\n### 大招识别\n\n由液柱和被液柱封闭的气体组成的模型。"
+    ],
+    "exclude": [],
+    "status": "active"
+  },
+  {
+    "stable_key": "physics.skill.move.076",
+    "name": "充放气问题",
+    "kind": "skill",
+    "subject": "physics",
+    "aliases": [],
+    "include": [
+      "学科：物理\n专题：热学\n技能：大招76 充放气问题\n部分：大招识别\n\n### 大招识别\n\n往容器里充气或从容器中往外放气的问题。"
+    ],
+    "exclude": [],
+    "status": "active"
+  }
+]

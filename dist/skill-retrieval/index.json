@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "profile_id": "skill-rag-nvidia-v1",
+      "profile_fingerprint": "sha256:f659f76df6d1c8608d72693d04cf7302932ca29296ee138cfcfa3b25a3323691",
+      "representation_revision": "sha256:337800252d20325f527765c6fa0a5bc68dd6d61015a46482949aa1a48091445d",
+      "artifact": "skill-retrieval/skill-rag-nvidia-v1.json",
+      "artifact_sha256": "337800252d20325f527765c6fa0a5bc68dd6d61015a46482949aa1a48091445d",
+      "manifest": "skill-retrieval/skill-rag-nvidia-v1.manifest.json",
+      "manifest_sha256": "ab5ea681781550a08588482bfd09c6e4891ab4c35adb395b9da5fea5fb32d8fd",
+      "dimension": 2048,
+      "document_count": 76
+    }
+  ]
+}

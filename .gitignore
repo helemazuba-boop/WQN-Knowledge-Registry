@@ -1,6 +1,13 @@
 node_modules/
 dist/*
 !dist/registry.json
+!dist/skill-retrieval/
+!dist/skill-retrieval/**
+dist/*.tmp
+registry/skill-retrieval/vectors/*.tmp-*
+registry/skill-retrieval.staging.json
+scripts/__pycache__/
+tests/__pycache__/
 coverage/
 .env
 .env.*

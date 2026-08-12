@@ -1,2 +1,6 @@
 LICENSE
 dist/registry.json
+dist/skill-retrieval/
+registry/skill-retrieval/documents.json
+registry/skill-retrieval/vectors/
+registry/skill-retrieval/tokenizers/

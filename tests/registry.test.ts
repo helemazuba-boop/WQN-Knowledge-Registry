@@ -279,6 +279,23 @@ describe('Knowledge Registry validation', () => {
     expect(
       registry.subjects.some((subject) => subject.stable_key === 'math')
     ).toBe(true);
-    expect(registry.marks).toEqual([]);
+    expect(registry.marks).toHaveLength(76);
+    expect(registry.marks[0]).toMatchObject({
+      stable_key: 'physics.skill.move.001',
+      kind: 'skill',
+      subject: 'physics',
+      status: 'active',
+    });
+    expect(registry.marks.at(-1)).toMatchObject({
+      stable_key: 'physics.skill.move.076',
+      kind: 'skill',
+      subject: 'physics',
+      status: 'active',
+    });
+    expect(
+      registry.marks.some(
+        (entry) => entry.stable_key === 'physics.skill.move.077'
+      )
+    ).toBe(false);
   });
 });

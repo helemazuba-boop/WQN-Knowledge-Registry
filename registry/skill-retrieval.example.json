@@ -1,0 +1,17 @@
+{
+  "format_version": "wqn-skill-retrieval-vectors-v1",
+  "source_corpus_sha256": "REQUIRED_64_LOWERCASE_HEX",
+  "source_documents_sha256": "REQUIRED_64_LOWERCASE_HEX",
+  "profile_id": "skill-rag-nvidia-v1",
+  "profile_fingerprint": "sha256:REQUIRED_64_LOWERCASE_HEX",
+  "source_vectors_sha256": "REQUIRED_64_LOWERCASE_HEX",
+  "source_vector_cache_key": "REQUIRED_64_LOWERCASE_HEX",
+  "vectors": [
+    {
+      "index": 0,
+      "stable_key": "physics.skill.move.001",
+      "source_location": "REQUIRED_SOURCE_LOCATION",
+      "vector": []
+    }
+  ]
+}

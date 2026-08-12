@@ -1,0 +1,38 @@
+{
+  "profile_id": "skill-rag-nvidia-v1",
+  "provider_protocol": "nvidia-query-passage-v1",
+  "provider": "nvidia",
+  "endpoint": "https://integrate.api.nvidia.com/v1/embeddings",
+  "model": "nvidia/nemotron-3-embed-1b",
+  "model_identity_policy": "hosted_alias",
+  "model_identity": "nvidia/nemotron-3-embed-1b",
+  "dimension": 2048,
+  "encoding_format": "float",
+  "normalization": "l2",
+  "document_contract": {
+    "input_type": "passage",
+    "truncate": "NONE"
+  },
+  "query_contract": {
+    "input_type": "query",
+    "truncate": "NONE"
+  },
+  "document_template_version": "skill-chunks-priority-gte-0.95-v1",
+  "query_template_version": "skill-question-v1",
+  "tokenizer": {
+    "repository": "nvidia/Nemotron-3-Embed-1B-BF16",
+    "revision": "REQUIRED_40_HEX_COMMIT_SHA",
+    "files": [
+      {
+        "path": "tokenizer.json",
+        "sha256": "REQUIRED_64_LOWERCASE_HEX"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "sha256": "REQUIRED_64_LOWERCASE_HEX"
+      }
+    ],
+    "max_tokens": 4096,
+    "trust_remote_code": false
+  }
+}

@@ -9,10 +9,13 @@
   },
   "scripts": {
     "validate": "node scripts/validate.ts",
+    "import:skill-chunks": "node scripts/import-skill-chunks.ts",
+    "embed:skill-docs": "python3 scripts/embed-skill-documents.py",
+    "preflight:skill-docs": "node scripts/preflight-skill-documents.ts",
     "build": "node scripts/build.ts",
     "compatibility": "node scripts/build.ts --baseline",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run && python3 -m unittest tests/test_embed_skill_documents.py",
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -22,6 +25,7 @@
     "zod": "^4.1.11"
   },
   "devDependencies": {
+    "@huggingface/tokenizers": "^0.1.3",
     "@types/node": "^24.0.0",
     "prettier": "^3.6.2",
     "typescript": "^5.0.0",

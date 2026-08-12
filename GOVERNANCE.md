@@ -49,12 +49,23 @@ Every Registry change must:
 3. pass the historical compatibility check against the artifact from protected `main`;
 4. use deprecation instead of deletion;
 5. avoid inventing taxonomy entries without review;
-6. contain no user data, Problem records, credentials, or deployment configuration.
+6. contain no user data, Problem records, credentials, or deployment configuration;
+7. bind every Skill retrieval document and vector to an already-reviewed canonical
+   Skill identity rather than deriving a key from a source heading or location;
+8. bind each published vector set to one exact embedding profile fingerprint, request
+   contract, dimension, tokenizer contract when applicable, and source artifact hashes;
+9. record hosted model aliases honestly as `hosted_alias`; an immutable revision may
+   only be claimed when the selected provider snapshot can actually be proven.
 
 Structural validation and historical compatibility are separate gates. The checkout
 validator proves that one revision is internally valid. The compatibility gate proves
 that it preserves published identities, keeps a Mark's subject/kind immutable, and
 does not reactivate deprecated identities.
+
+Retrieval representation revisions are separate from canonical semantic revisions.
+Changing retrieval text, vectors, or an embedding profile affects future candidate
+retrieval only; it does not rewrite Mark identity, make existing Problem Marks stale,
+or trigger an automatic Subject-wide reannotation.
 
 ## Runtime boundary
 

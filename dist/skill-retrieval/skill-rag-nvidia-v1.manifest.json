@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "representation_revision": "sha256:337800252d20325f527765c6fa0a5bc68dd6d61015a46482949aa1a48091445d",
+  "artifact": "skill-retrieval/skill-rag-nvidia-v1.json",
+  "artifact_sha256": "337800252d20325f527765c6fa0a5bc68dd6d61015a46482949aa1a48091445d",
+  "profile_id": "skill-rag-nvidia-v1",
+  "profile_fingerprint": "sha256:f659f76df6d1c8608d72693d04cf7302932ca29296ee138cfcfa3b25a3323691",
+  "provider_protocol": "nvidia-query-passage-v1",
+  "provider": "nvidia",
+  "model": "nvidia/nemotron-3-embed-1b",
+  "model_identity_policy": "hosted_alias",
+  "model_identity": "nvidia/nemotron-3-embed-1b",
+  "dimension": 2048,
+  "normalization": "l2",
+  "source_corpus_sha256": "00b160fcced93a387ada59b1f6fbbe402e7bb9f8a10c757278d7a4a0b4d3610f",
+  "source_documents_sha256": "2cf611ddd5d3f8547804047a61495f55785ad6c888360d90c4a4cf12ad84cc92",
+  "source_vectors_sha256": "1ba19d9586ec28ed01741b798b55b6b35ccb4022c5b2de45706dd82715bd6518",
+  "source_vector_cache_key": "c20b5cc7a04919fbec18b5b74825517d2f3a8acd599d97bf69485bb0b5033c2a",
+  "documents_sha256": "2cf611ddd5d3f8547804047a61495f55785ad6c888360d90c4a4cf12ad84cc92",
+  "vectors_sha256": "22f30119af93858d880637c56872e677ee040d66a19127d295d95c0187b0bc6f",
+  "document_count": 76
+}
