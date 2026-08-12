@@ -10,7 +10,11 @@ import {
 } from '../src/skill-retrieval-profile.ts';
 import { assertNvidiaTokenLimits } from '../src/skill-retrieval-tokenizer.ts';
 
-const profileIds = ['skill-rag-qwen-v1', 'skill-rag-nvidia-v1'];
+const profileIds = [
+  'skill-rag-qwen-v1',
+  'skill-rag-nvidia-v1',
+  'skill-rag-qwen37-v1',
+];
 const registry = await loadKnowledgeRegistry();
 const profiles = [];
 for (const profileId of profileIds) {

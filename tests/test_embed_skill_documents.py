@@ -36,6 +36,21 @@ def nvidia_profile() -> dict:
     }
 
 
+def qwen37_profile() -> dict:
+    return {
+        "provider_protocol": "dashscope-qwen37-native-v1",
+        "model": "qwen3.7-text-embedding",
+        "encoding_format": "float",
+        "dimension": 2560,
+        "document_contract": {"text_type": "document", "output_type": "dense"},
+        "query_contract": {
+            "text_type": "query",
+            "output_type": "dense",
+            "instruct": "Retrieve the relevant skill.",
+        },
+    }
+
+
 class RequestContractTests(unittest.TestCase):
     def test_qwen_roles_use_plain_documents_and_instructed_queries(self) -> None:
         self.assertEqual(
@@ -59,12 +74,44 @@ class RequestContractTests(unittest.TestCase):
         self.assertEqual(document["truncate"], "NONE")
         self.assertEqual(query["truncate"], "NONE")
 
+    def test_qwen37_roles_use_native_dashscope_semantics(self) -> None:
+        self.assertEqual(
+            embedder.request_body(qwen37_profile(), ["document"], "document"),
+            {
+                "model": "qwen3.7-text-embedding",
+                "input": {"texts": ["document"]},
+                "parameters": {
+                    "dimension": 2560,
+                    "output_type": "dense",
+                    "text_type": "document",
+                },
+            },
+        )
+        query = embedder.request_body(qwen37_profile(), ["question"], "query")
+        self.assertEqual(
+            query["parameters"],
+            {
+                "dimension": 2560,
+                "output_type": "dense",
+                "text_type": "query",
+                "instruct": "Retrieve the relevant skill.",
+            },
+        )
+
     def test_provider_protocol_selects_fixed_credential_name(self) -> None:
         self.assertEqual(
             embedder.credential_environment(qwen_profile()), "MODELSCOPE_TOKEN"
         )
         self.assertEqual(
             embedder.credential_environment(nvidia_profile()), "NVIDIA_API_KEY"
+        )
+        self.assertEqual(
+            embedder.credential_environment(qwen37_profile()), "DASHSCOPE_API_KEY"
+        )
+        self.assertIsNone(embedder.endpoint_environment(qwen_profile()))
+        self.assertIsNone(embedder.endpoint_environment(nvidia_profile()))
+        self.assertEqual(
+            embedder.endpoint_environment(qwen37_profile()), "DASHSCOPE_ENDPOINT"
         )
 
 
@@ -97,6 +144,46 @@ class ProviderResponseTests(unittest.TestCase):
                 {"data": [{"index": 0, "embedding": [1.0]}]}, 2
             )
 
+    def test_dashscope_response_indexes_are_complete_unique_and_ordered(self) -> None:
+        self.assertEqual(
+            embedder.decode_dashscope_embeddings(
+                {
+                    "status_code": 200,
+                    "output": {
+                        "embeddings": [
+                            {"text_index": 1, "embedding": [0.0, 1.0]},
+                            {"text_index": 0, "embedding": [1.0, 0.0]},
+                        ]
+                    },
+                },
+                2,
+            ),
+            [[1.0, 0.0], [0.0, 1.0]],
+        )
+        with self.assertRaisesRegex(embedder.ProviderContractError, "duplicate"):
+            embedder.decode_dashscope_embeddings(
+                {
+                    "status_code": 200,
+                    "output": {
+                        "embeddings": [
+                            {"text_index": 0, "embedding": [1.0]},
+                            {"text_index": 0, "embedding": [1.0]},
+                        ]
+                    },
+                },
+                2,
+            )
+        with self.assertRaisesRegex(embedder.ProviderContractError, "missing"):
+            embedder.decode_dashscope_embeddings(
+                {
+                    "status_code": 200,
+                    "output": {
+                        "embeddings": [{"text_index": 0, "embedding": [1.0]}]
+                    },
+                },
+                2,
+            )
+
     def test_retryable_http_statuses_are_narrow(self) -> None:
         for status in (429, 500, 503):
             error = HTTPError("https://example.test", status, "failure", {}, BytesIO())
@@ -104,7 +191,8 @@ class ProviderResponseTests(unittest.TestCase):
                 with self.assertRaises(embedder.TransientProviderError):
                     embedder.request_embeddings(
                         ["document"],
-                        {**nvidia_profile(), "endpoint": "https://example.test"},
+                        nvidia_profile(),
+                        "https://example.test",
                         "secret",
                         "document",
                         1,
@@ -115,7 +203,8 @@ class ProviderResponseTests(unittest.TestCase):
                 with self.assertRaises(embedder.ProviderContractError):
                     embedder.request_embeddings(
                         ["document"],
-                        {**nvidia_profile(), "endpoint": "https://example.test"},
+                        nvidia_profile(),
+                        "https://example.test",
                         "secret",
                         "document",
                         1,

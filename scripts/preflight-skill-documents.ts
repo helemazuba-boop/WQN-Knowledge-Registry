@@ -6,6 +6,7 @@ import {
 } from '../src/skill-retrieval.ts';
 import {
   embeddingCredentialEnvironment,
+  embeddingEndpointEnvironment,
   renderEmbeddingInputs,
   skillEmbeddingProfileFingerprint,
   SkillEmbeddingProfileSchema,
@@ -16,7 +17,9 @@ import { assertNvidiaTokenLimits } from '../src/skill-retrieval-tokenizer.ts';
 interface PreflightResult {
   profile_id: string;
   profile_fingerprint: string;
-  credential_environment: 'MODELSCOPE_TOKEN' | 'NVIDIA_API_KEY';
+  credential_environment:
+    'MODELSCOPE_TOKEN' | 'NVIDIA_API_KEY' | 'DASHSCOPE_API_KEY';
+  endpoint_environment: string | null;
   document_count: number;
   token_limit: number | null;
   min_tokens: number | null;
@@ -78,6 +81,7 @@ async function preflight(
     profile_id: profile.profile_id,
     profile_fingerprint: skillEmbeddingProfileFingerprint(profile),
     credential_environment: embeddingCredentialEnvironment(profile),
+    endpoint_environment: embeddingEndpointEnvironment(profile),
     document_count: source.documents.length,
     token_limit: profile.tokenizer?.max_tokens ?? null,
     min_tokens: tokens.length ? Math.min(...tokens) : null,

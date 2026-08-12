@@ -76,7 +76,15 @@ def credential_environment(profile: dict) -> str:
         return "MODELSCOPE_TOKEN"
     if protocol == "nvidia-query-passage-v1":
         return "NVIDIA_API_KEY"
+    if protocol == "dashscope-qwen37-native-v1":
+        return "DASHSCOPE_API_KEY"
     raise ProviderContractError("Unsupported embedding provider protocol")
+
+
+def endpoint_environment(profile: dict) -> str | None:
+    if profile.get("provider_protocol") == "dashscope-qwen37-native-v1":
+        return "DASHSCOPE_ENDPOINT"
+    return None
 
 
 def request_body(profile: dict, texts: list[str], role: str) -> dict:
@@ -98,6 +106,24 @@ def request_body(profile: dict, texts: list[str], role: str) -> dict:
             "encoding_format": profile["encoding_format"],
             "input_type": contract["input_type"],
             "truncate": contract["truncate"],
+        }
+    elif protocol == "dashscope-qwen37-native-v1":
+        contract = (
+            profile["document_contract"]
+            if role == "document"
+            else profile["query_contract"]
+        )
+        parameters = {
+            "dimension": profile["dimension"],
+            "output_type": contract["output_type"],
+            "text_type": contract["text_type"],
+        }
+        if role == "query":
+            parameters["instruct"] = contract["instruct"]
+        return {
+            "model": profile["model"],
+            "input": {"texts": inputs},
+            "parameters": parameters,
         }
     else:
         raise ProviderContractError("Unsupported embedding provider protocol")
@@ -131,12 +157,45 @@ def decode_embeddings(payload: object, expected_rows: int) -> list[list[float]]:
     return [by_index[index] for index in range(expected_rows)]
 
 
+def decode_dashscope_embeddings(
+    payload: object, expected_rows: int
+) -> list[list[float]]:
+    if not isinstance(payload, dict):
+        raise ProviderContractError("Embedding provider returned malformed JSON")
+    status_code = payload.get("status_code", 200)
+    if status_code != 200:
+        raise ProviderContractError(
+            f"Embedding provider rejected the request (status {status_code})"
+        )
+    output = payload.get("output")
+    if not isinstance(output, dict) or not isinstance(output.get("embeddings"), list):
+        raise ProviderContractError("Embedding provider returned malformed JSON")
+    by_index: dict[int, list[float]] = {}
+    for item in output["embeddings"]:
+        if not isinstance(item, dict):
+            raise ProviderContractError("Embedding provider returned a malformed row")
+        index = item.get("text_index")
+        vector = item.get("embedding")
+        if (
+            not isinstance(index, int)
+            or isinstance(index, bool)
+            or not isinstance(vector, list)
+        ):
+            raise ProviderContractError("Embedding provider returned a malformed row")
+        if index in by_index:
+            raise ProviderContractError("Embedding provider returned duplicate indexes")
+        by_index[index] = vector
+    if set(by_index) != set(range(expected_rows)):
+        raise ProviderContractError("Embedding provider returned missing indexes")
+    return [by_index[index] for index in range(expected_rows)]
+
+
 def request_embeddings(
-    texts: list[str], profile: dict, token: str, role: str, timeout: int
+    texts: list[str], profile: dict, endpoint: str, token: str, role: str, timeout: int
 ) -> list[list[float]]:
     body = json.dumps(request_body(profile, texts, role)).encode("utf-8")
     request = Request(
-        profile["endpoint"],
+        endpoint,
         data=body,
         headers={
             "Authorization": f"Bearer {token}",
@@ -163,6 +222,8 @@ def request_embeddings(
         raise TransientProviderError("Embedding provider network request failed") from None
     except (UnicodeDecodeError, json.JSONDecodeError):
         raise ProviderContractError("Embedding provider returned malformed JSON") from None
+    if profile.get("provider_protocol") == "dashscope-qwen37-native-v1":
+        return decode_dashscope_embeddings(payload, len(texts))
     return decode_embeddings(payload, len(texts))
 
 
@@ -226,6 +287,7 @@ def run_preflight(documents_path: Path, profile_path: Path) -> dict:
 def embed_documents(
     documents: list[dict],
     profile: dict,
+    endpoint: str,
     token: str,
     batch_size: int,
     timeout: int,
@@ -239,6 +301,7 @@ def embed_documents(
                 raw_vectors = request_embeddings(
                     [document["retrieval_text"] for document in batch],
                     profile,
+                    endpoint,
                     token,
                     "document",
                     timeout,
@@ -298,6 +361,9 @@ def main() -> int:
         token_environment = credential_environment(profile)
         if preflight.get("credential_environment") != token_environment:
             raise ProviderContractError("Preflight credential contract mismatch")
+        endpoint_environment_name = endpoint_environment(profile)
+        if preflight.get("endpoint_environment") != endpoint_environment_name:
+            raise ProviderContractError("Preflight endpoint contract mismatch")
         token = os.environ.get(token_environment, "").strip()
         if not token:
             print(
@@ -305,10 +371,20 @@ def main() -> int:
                 file=sys.stderr,
             )
             return 2
+        endpoint = profile["endpoint"]
+        if endpoint_environment_name:
+            endpoint = os.environ.get(endpoint_environment_name, "").strip()
+            if not endpoint:
+                print(
+                    f"Missing protected server-side environment variable {endpoint_environment_name}",
+                    file=sys.stderr,
+                )
+                return 2
 
         vectors = embed_documents(
             documents,
             profile,
+            endpoint,
             token,
             args.batch_size,
             args.timeout,

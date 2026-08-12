@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "representation_revision": "sha256:b24460d012b2945753acefbdb999c7be1c42ec35feb900d9a4a470b8db3ccf43",
+  "artifact": "skill-retrieval/skill-rag-qwen37-v1.json",
+  "artifact_sha256": "b24460d012b2945753acefbdb999c7be1c42ec35feb900d9a4a470b8db3ccf43",
+  "profile_id": "skill-rag-qwen37-v1",
+  "profile_fingerprint": "sha256:94f4cb42b1235d4553ca0fd287b9ec127e3c5c61c07e65459e2c3b0f2324c9d8",
+  "provider_protocol": "dashscope-qwen37-native-v1",
+  "provider": "dashscope",
+  "model": "qwen3.7-text-embedding",
+  "model_identity_policy": "hosted_alias",
+  "model_identity": "qwen3.7-text-embedding",
+  "dimension": 2560,
+  "normalization": "l2",
+  "source_corpus_sha256": "00b160fcced93a387ada59b1f6fbbe402e7bb9f8a10c757278d7a4a0b4d3610f",
+  "source_documents_sha256": "2cf611ddd5d3f8547804047a61495f55785ad6c888360d90c4a4cf12ad84cc92",
+  "source_vectors_sha256": "060c392cd012189b72a86db56b6f557e2db96cc574c2e683158b0ce07ffea282",
+  "source_vector_cache_key": "0369838228f2a7bce4c34feff53f1396fc3e5337f3d6ad1826f2a3118d67a3ce",
+  "documents_sha256": "2cf611ddd5d3f8547804047a61495f55785ad6c888360d90c4a4cf12ad84cc92",
+  "vectors_sha256": "b2e26446eb56980517e1058623d671b8d78d1d9597e26855827ba200434edd4e",
+  "document_count": 76
+}

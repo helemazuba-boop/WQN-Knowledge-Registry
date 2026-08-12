@@ -11,6 +11,17 @@
       "manifest_sha256": "ab5ea681781550a08588482bfd09c6e4891ab4c35adb395b9da5fea5fb32d8fd",
       "dimension": 2048,
       "document_count": 76
+    },
+    {
+      "profile_id": "skill-rag-qwen37-v1",
+      "profile_fingerprint": "sha256:94f4cb42b1235d4553ca0fd287b9ec127e3c5c61c07e65459e2c3b0f2324c9d8",
+      "representation_revision": "sha256:b24460d012b2945753acefbdb999c7be1c42ec35feb900d9a4a470b8db3ccf43",
+      "artifact": "skill-retrieval/skill-rag-qwen37-v1.json",
+      "artifact_sha256": "b24460d012b2945753acefbdb999c7be1c42ec35feb900d9a4a470b8db3ccf43",
+      "manifest": "skill-retrieval/skill-rag-qwen37-v1.manifest.json",
+      "manifest_sha256": "494eb34d80e172cca158fd7a43f11bc2ad8929ae8a93b626e10a3cf8ef55bc8d",
+      "dimension": 2560,
+      "document_count": 76
     }
   ]
 }

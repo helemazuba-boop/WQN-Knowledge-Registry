@@ -15,7 +15,11 @@ const repositoryDir = fileURLToPath(new URL('../', import.meta.url));
 const outputDir = path.join(repositoryDir, 'dist');
 const outputPath = path.join(outputDir, 'registry.json');
 const skillRetrievalOutputDir = path.join(outputDir, 'skill-retrieval');
-const skillRetrievalProfileIds = ['skill-rag-qwen-v1', 'skill-rag-nvidia-v1'];
+const skillRetrievalProfileIds = [
+  'skill-rag-qwen-v1',
+  'skill-rag-nvidia-v1',
+  'skill-rag-qwen37-v1',
+];
 
 function compatibilityPath(argv: string[]): string | null {
   const index = argv.indexOf('--baseline');

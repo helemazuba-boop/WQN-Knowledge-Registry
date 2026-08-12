@@ -101,6 +101,32 @@ function nvidiaProfile() {
   };
 }
 
+function qwen37Profile() {
+  return {
+    profile_id: 'skill-rag-qwen37-v1',
+    provider_protocol: 'dashscope-qwen37-native-v1',
+    provider: 'dashscope',
+    endpoint:
+      'https://dashscope.aliyuncs.com/api/v1/services/embeddings/text-embedding/text-embedding',
+    model: 'qwen3.7-text-embedding',
+    model_identity_policy: 'hosted_alias',
+    model_identity: 'qwen3.7-text-embedding',
+    dimension: 2560,
+    encoding_format: 'float',
+    normalization: 'l2',
+    document_contract: { text_type: 'document', output_type: 'dense' },
+    query_contract: {
+      text_type: 'query',
+      output_type: 'dense',
+      instruct:
+        'Given a Chinese high school physics problem, retrieve the most relevant problem-solving skill or method needed to solve it.',
+    },
+    document_template_version: 'skill-doc-v1',
+    query_template_version: 'skill-query-v1',
+    tokenizer: null,
+  };
+}
+
 function documents() {
   const rows = [
     {
@@ -194,6 +220,28 @@ describe('Skill retrieval profiles', () => {
     expect(
       embeddingRequestBody(nvidiaProfile(), ['题面'], 'query')
     ).toMatchObject({ input_type: 'query', truncate: 'NONE' });
+    expect(
+      embeddingRequestBody(qwen37Profile(), ['原始文本'], 'document')
+    ).toEqual({
+      model: 'qwen3.7-text-embedding',
+      input: { texts: ['原始文本'] },
+      parameters: {
+        dimension: 2560,
+        output_type: 'dense',
+        text_type: 'document',
+      },
+    });
+    expect(embeddingRequestBody(qwen37Profile(), ['题面'], 'query')).toEqual({
+      model: 'qwen3.7-text-embedding',
+      input: { texts: ['题面'] },
+      parameters: {
+        dimension: 2560,
+        output_type: 'dense',
+        text_type: 'query',
+        instruct:
+          'Given a Chinese high school physics problem, retrieve the most relevant problem-solving skill or method needed to solve it.',
+      },
+    });
   });
 
   it('validates hosted aliases without claiming immutable identity', () => {
@@ -266,13 +314,34 @@ describe('Skill retrieval artifact', () => {
     ).toThrow(/does not match artifact bytes/);
   });
 
-  it('rejects cross-profile vectors', () => {
+  it('rejects cross-profile vectors and same-dimension profile swaps', () => {
+    const qwen37Vectors = {
+      ...vectors(),
+      profile_id: qwen37Profile().profile_id,
+      profile_fingerprint: 'sha256:' + '0'.repeat(64),
+    };
     expect(() =>
       createSkillRetrievalArtifact(
         registry(),
         documents(),
         nvidiaProfile(),
         vectors(qwenProfile())
+      )
+    ).toThrow(/profile mismatch/);
+    expect(() =>
+      createSkillRetrievalArtifact(
+        registry(),
+        documents(),
+        qwen37Profile(),
+        vectors(qwenProfile())
+      )
+    ).toThrow(/profile mismatch/);
+    expect(() =>
+      createSkillRetrievalArtifact(
+        registry(),
+        documents(),
+        qwenProfile(),
+        qwen37Vectors
       )
     ).toThrow(/profile mismatch/);
   });

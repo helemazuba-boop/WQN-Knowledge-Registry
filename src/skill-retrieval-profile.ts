@@ -8,7 +8,7 @@ const ProfileIdSchema = z.string().regex(/^skill-rag-[a-z0-9]+-v[1-9][0-9]*$/);
 
 const CommonProfileShape = {
   profile_id: ProfileIdSchema,
-  provider: z.enum(['modelscope', 'nvidia']),
+  provider: z.enum(['modelscope', 'nvidia', 'dashscope']),
   endpoint: z
     .string()
     .url()
@@ -123,11 +123,60 @@ export const NvidiaSkillEmbeddingProfileSchema = z
     }
   });
 
+export const DashScopeQwen37SkillEmbeddingProfileSchema = z
+  .object({
+    ...CommonProfileShape,
+    profile_id: z.literal('skill-rag-qwen37-v1'),
+    provider_protocol: z.literal('dashscope-qwen37-native-v1'),
+    provider: z.literal('dashscope'),
+    model: z.literal('qwen3.7-text-embedding'),
+    dimension: z.literal(2560),
+    document_contract: z
+      .object({
+        text_type: z.literal('document'),
+        output_type: z.literal('dense'),
+      })
+      .strict(),
+    query_contract: z
+      .object({
+        text_type: z.literal('query'),
+        output_type: z.literal('dense'),
+        instruct: z.literal(
+          'Given a Chinese high school physics problem, retrieve the most relevant problem-solving skill or method needed to solve it.'
+        ),
+      })
+      .strict(),
+    tokenizer: z.null(),
+  })
+  .strict()
+  .superRefine((profile, context) => {
+    if (
+      profile.model_identity_policy === 'immutable_revision' &&
+      !ImmutableRevisionSchema.safeParse(profile.model_identity).success
+    ) {
+      context.addIssue({
+        code: 'custom',
+        path: ['model_identity'],
+        message: 'immutable_revision requires a pinned 40-hex revision',
+      });
+    }
+  });
+
 export const SkillEmbeddingProfileSchema = z.union([
   QwenSkillEmbeddingProfileSchema,
   NvidiaSkillEmbeddingProfileSchema,
+  DashScopeQwen37SkillEmbeddingProfileSchema,
 ]);
 
+export type QwenSkillEmbeddingProfile = z.infer<
+  typeof QwenSkillEmbeddingProfileSchema
+>;
+export type NvidiaSkillEmbeddingProfile = z.infer<
+  typeof NvidiaSkillEmbeddingProfileSchema
+>;
+export type DashScopeQwen37SkillEmbeddingProfile = z.infer<
+  typeof DashScopeQwen37SkillEmbeddingProfileSchema
+>;
 export type SkillEmbeddingProfile = z.infer<typeof SkillEmbeddingProfileSchema>;
 export type EmbeddingRole = 'document' | 'query';
 
@@ -166,6 +215,23 @@ export function embeddingRequestBody(
   role: EmbeddingRole
 ): Record<string, unknown> {
   const profile = SkillEmbeddingProfileSchema.parse(profileValue);
+  if (profile.provider_protocol === 'dashscope-qwen37-native-v1') {
+    const contract =
+      role === 'document' ? profile.document_contract : profile.query_contract;
+    return {
+      model: profile.model,
+      input: { texts: [...texts] },
+      parameters: {
+        dimension: profile.dimension,
+        output_type: contract.output_type,
+        text_type: contract.text_type,
+        ...(role === 'query' && 'instruct' in contract
+          ? { instruct: contract.instruct }
+          : {}),
+      },
+    };
+  }
+
   const body: Record<string, unknown> = {
     model: profile.model,
     input: renderEmbeddingInputs(profile, texts, role),
@@ -182,7 +248,18 @@ export function embeddingRequestBody(
 
 export function embeddingCredentialEnvironment(
   profileValue: unknown
-): 'MODELSCOPE_TOKEN' | 'NVIDIA_API_KEY' {
+): 'MODELSCOPE_TOKEN' | 'NVIDIA_API_KEY' | 'DASHSCOPE_API_KEY' {
   const profile = SkillEmbeddingProfileSchema.parse(profileValue);
-  return profile.provider === 'nvidia' ? 'NVIDIA_API_KEY' : 'MODELSCOPE_TOKEN';
+  if (profile.provider === 'nvidia') return 'NVIDIA_API_KEY';
+  if (profile.provider === 'dashscope') return 'DASHSCOPE_API_KEY';
+  return 'MODELSCOPE_TOKEN';
+}
+
+export function embeddingEndpointEnvironment(
+  profileValue: unknown
+): string | null {
+  const profile = SkillEmbeddingProfileSchema.parse(profileValue);
+  return profile.provider_protocol === 'dashscope-qwen37-native-v1'
+    ? 'DASHSCOPE_ENDPOINT'
+    : null;
 }
