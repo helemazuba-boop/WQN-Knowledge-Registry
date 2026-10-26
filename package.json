@@ -13,6 +13,7 @@
     "embed:skill-docs": "python3 scripts/embed-skill-documents.py",
     "preflight:skill-docs": "node scripts/preflight-skill-documents.ts",
     "build": "node scripts/build.ts",
+    "build:agent": "node scripts/build-agent-workspace.ts",
     "compatibility": "node scripts/build.ts --baseline",
     "typecheck": "tsc --noEmit",
     "test": "vitest run && python3 -m unittest tests/test_embed_skill_documents.py",

@@ -1,5 +1,22 @@
 # WQN Knowledge Registry
 
+## OpenCode marking workspace
+
+`npm run build:agent` generates `dist/agent-marking/`: a vector-free, versioned
+catalog and per-method documents, the `mark` Skill, a restricted V2 agent and
+dedicated MCP configuration. Run OpenCode V2 with this directory as its Location.
+The generated [workspace guide](templates/agent-marking/README.md) includes its
+directory layout, service setup, worker settings and one-Problem workflow.
+The provider/default model comes from the existing OpenCode configuration.
+Set `WQN_MARK_MCP_URL` and `PROBLEM_MARKING_AGENT_SECRET` in the OpenCode service
+environment. Each WQN task creates a fresh session; recovery reuses that session.
+
+Sync the generated `bundle.json` into WQN with `npm run marks:sync-agent --
+/path/to/dist/agent-marking/bundle.json` from WQN's `web` directory. The command
+checks the canonical registry content hash and updates the artifact lock. Deploy
+the same generated workspace to OpenCode. See WQN's marking worker guide for the
+cloud migration, engine switch, service configuration and manual acceptance.
+
 WQN 的 Canonical Subject、Knowledge Mark 与 Skill Mark 事实源。
 
 This repository is the source of truth for WQN's canonical learning vocabulary.

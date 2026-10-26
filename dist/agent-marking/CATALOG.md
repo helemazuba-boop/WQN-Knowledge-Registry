@@ -1,0 +1,80 @@
+# WQN classification catalog
+
+Read only the relevant documents. Stable keys are permanent identities.
+
+- physics: [黄金路径法巧选运动学公式](documents/physics.skill.move.001.md) — physics.skill.move.001
+- physics: [巧用均速法](documents/physics.skill.move.002.md) — physics.skill.move.002
+- physics: [零点推论](documents/physics.skill.move.003.md) — physics.skill.move.003
+- physics: [位移差公式](documents/physics.skill.move.004.md) — physics.skill.move.004
+- physics: [运动学图像问题通解](documents/physics.skill.move.005.md) — physics.skill.move.005
+- physics: [0-v-0 模型](documents/physics.skill.move.006.md) — physics.skill.move.006
+- physics: [巧选方程解多段问题](documents/physics.skill.move.007.md) — physics.skill.move.007
+- physics: [距离公式巧解追及相遇问题](documents/physics.skill.move.008.md) — physics.skill.move.008
+- physics: [用 v-t 图像描述追及相遇问题](documents/physics.skill.move.009.md) — physics.skill.move.009
+- physics: [整体法分析多物体受力](documents/physics.skill.move.010.md) — physics.skill.move.010
+- physics: [全反力巧解含摩擦力的四力平衡](documents/physics.skill.move.011.md) — physics.skill.move.011
+- physics: [动态平衡之横不转模型](documents/physics.skill.move.012.md) — physics.skill.move.012
+- physics: [动态平衡之斜不转模型](documents/physics.skill.move.013.md) — physics.skill.move.013
+- physics: [动态平衡之定角转模型](documents/physics.skill.move.014.md) — physics.skill.move.014
+- physics: [动态平衡之相似三角形法](documents/physics.skill.move.015.md) — physics.skill.move.015
+- physics: [降维法巧解三维空间中的平衡问题](documents/physics.skill.move.016.md) — physics.skill.move.016
+- physics: [等时圆模型](documents/physics.skill.move.017.md) — physics.skill.move.017
+- physics: [内力公式](documents/physics.skill.move.018.md) — physics.skill.move.018
+- physics: [对系统列牛顿第二定律](documents/physics.skill.move.019.md) — physics.skill.move.019
+- physics: [弹簧分离问题](documents/physics.skill.move.020.md) — physics.skill.move.020
+- physics: [板块问题通解](documents/physics.skill.move.021.md) — physics.skill.move.021
+- physics: [传送带模型](documents/physics.skill.move.022.md) — physics.skill.move.022
+- physics: [小船过河模型](documents/physics.skill.move.023.md) — physics.skill.move.023
+- physics: [三个步骤巧解关联速度问题](documents/physics.skill.move.024.md) — physics.skill.move.024
+- physics: [平抛运动的推论](documents/physics.skill.move.025.md) — physics.skill.move.025
+- physics: [口诀法速解平抛轨迹比较和斜面平抛比例问题](documents/physics.skill.move.026.md) — physics.skill.move.026
+- physics: [圆盘模型](documents/physics.skill.move.027.md) — physics.skill.move.027
+- physics: [口诀法比较圆锥摆类问题](documents/physics.skill.move.028.md) — physics.skill.move.028
+- physics: [竖直圆模型](documents/physics.skill.move.029.md) — physics.skill.move.029
+- physics: [口诀法解卫星比较问题](documents/physics.skill.move.030.md) — physics.skill.move.030
+- physics: [“知二求三”求解卫星运动中的物理量](documents/physics.skill.move.031.md) — physics.skill.move.031
+- physics: [公式法解天体追及相遇问题](documents/physics.skill.move.032.md) — physics.skill.move.032
+- physics: [口诀法 + “麻辣烫”公式秒杀双星问题](documents/physics.skill.move.033.md) — physics.skill.move.033
+- physics: [卫星变轨问题](documents/physics.skill.move.034.md) — physics.skill.move.034
+- physics: [计算斜面摩擦力做功与变力做功的方法](documents/physics.skill.move.035.md) — physics.skill.move.035
+- physics: [机车启动模型通解](documents/physics.skill.move.036.md) — physics.skill.move.036
+- physics: [动能定理的应用](documents/physics.skill.move.037.md) — physics.skill.move.037
+- physics: [动能定理搞定竖直圆问题](documents/physics.skill.move.038.md) — physics.skill.move.038
+- physics: [动量定理巧解流体模型](documents/physics.skill.move.039.md) — physics.skill.move.039
+- physics: [关系法速解人船模型](documents/physics.skill.move.040.md) — physics.skill.move.040
+- physics: [速算完全非弹性碰撞的机械能损失](documents/physics.skill.move.041.md) — physics.skill.move.041
+- physics: [速算弹性碰撞碰后速度](documents/physics.skill.move.042.md) — physics.skill.move.042
+- physics: [子弹打木块模型](documents/physics.skill.move.043.md) — physics.skill.move.043
+- physics: [弹簧模型](documents/physics.skill.move.044.md) — physics.skill.move.044
+- physics: [圆弧轨道模型](documents/physics.skill.move.045.md) — physics.skill.move.045
+- physics: [三点法、正交分解法巧解电场强度](documents/physics.skill.move.046.md) — physics.skill.move.046
+- physics: [三步速解“三线”（电场线、等势线、轨迹线）问题](documents/physics.skill.move.047.md) — physics.skill.move.047
+- physics: [“一线”巧解电场中的 $\varphi-x$、$E-x$ 图像问题](documents/physics.skill.move.048.md) — physics.skill.move.048
+- physics: [公式法快解平行板电容器的动态变化问题](documents/physics.skill.move.049.md) — physics.skill.move.049
+- physics: [口诀法巧解电容器的电势分析问题](documents/physics.skill.move.050.md) — physics.skill.move.050
+- physics: [公式法通解示波器计算问题](documents/physics.skill.move.051.md) — physics.skill.move.051
+- physics: [复合场中的上抛模型和竖直圆模型](documents/physics.skill.move.052.md) — physics.skill.move.052
+- physics: [“以图攻图”妙解交变电场问题](documents/physics.skill.move.053.md) — physics.skill.move.053
+- physics: [“串反并同”巧解电路动态分析问题](documents/physics.skill.move.054.md) — physics.skill.move.054
+- physics: [电表改装与校准](documents/physics.skill.move.055.md) — physics.skill.move.055
+- physics: [磁场轨迹问题](documents/physics.skill.move.056.md) — physics.skill.move.056
+- physics: [弦长公式](documents/physics.skill.move.057.md) — physics.skill.move.057
+- physics: [放缩圆](documents/physics.skill.move.058.md) — physics.skill.move.058
+- physics: [旋转圆](documents/physics.skill.move.059.md) — physics.skill.move.059
+- physics: [圆形磁场最小面积问题](documents/physics.skill.move.060.md) — physics.skill.move.060
+- physics: [类平抛电场 + 磁场](documents/physics.skill.move.061.md) — physics.skill.move.061
+- physics: [配速法解带电粒子在叠加场中的复杂曲线运动](documents/physics.skill.move.062.md) — physics.skill.move.062
+- physics: [口诀法搞定楞次定律](documents/physics.skill.move.063.md) — physics.skill.move.063
+- physics: [旋转切割模型](documents/physics.skill.move.064.md) — physics.skill.move.064
+- physics: [单棒模型](documents/physics.skill.move.065.md) — physics.skill.move.065
+- physics: [双棒模型](documents/physics.skill.move.066.md) — physics.skill.move.066
+- physics: [线框模型](documents/physics.skill.move.067.md) — physics.skill.move.067
+- physics: [排除法快解 $i-t$ 图像问题](documents/physics.skill.move.068.md) — physics.skill.move.068
+- physics: [速算交流电的有效值](documents/physics.skill.move.069.md) — physics.skill.move.069
+- physics: [波的图像和振动图像的互判方法](documents/physics.skill.move.070.md) — physics.skill.move.070
+- physics: [三步搞定波的多解性问题](documents/physics.skill.move.071.md) — physics.skill.move.071
+- physics: [光路图几何计算](documents/physics.skill.move.072.md) — physics.skill.move.072
+- physics: [理想气体图像问题](documents/physics.skill.move.073.md) — physics.skill.move.073
+- physics: [汽缸模型](documents/physics.skill.move.074.md) — physics.skill.move.074
+- physics: [三步法解液柱模型](documents/physics.skill.move.075.md) — physics.skill.move.075
+- physics: [充放气问题](documents/physics.skill.move.076.md) — physics.skill.move.076

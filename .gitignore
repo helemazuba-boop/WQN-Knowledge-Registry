@@ -1,5 +1,6 @@
 node_modules/
 dist/*
+!dist/agent-marking/
 !dist/registry.json
 !dist/skill-retrieval/
 !dist/skill-retrieval/**
